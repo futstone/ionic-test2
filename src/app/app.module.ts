@@ -5,21 +5,31 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+var config = {
+  apiKey: "AIzaSyAO0vWHgQWwoxo1iF-Uzgd-fBlBEJ9NbxU",
+  authDomain: "module6-onlinetest.firebaseapp.com",
+  databaseURL: "https://module6-onlinetest.firebaseio.com",
+  projectId: "module6-onlinetest",
+  storageBucket: "",
+  messagingSenderId: "6911500359"
+};
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   providers: [
     StatusBar,
