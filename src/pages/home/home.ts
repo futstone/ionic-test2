@@ -11,7 +11,7 @@ export class HomePage {
   username: string;
 
   constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
-    //this.username = this.fire.auth.currentUser.email;
+    this.username = this.fire.auth.currentUser.email;
   }
 
   ionViewDidLoad() {
