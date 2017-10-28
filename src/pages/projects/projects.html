@@ -3,15 +3,78 @@
   <ion-navbar>
     <ion-buttons start>
       <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+        <ion-icon name="menu"></ion-icon>
+      </button>
     </ion-buttons>
-    <ion-title>Project work</ion-title>
+    <ion-title>Projects</ion-title>
   </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="project">
+      <ion-segment-button value="futoshiki">
+        Futoshiki
+      </ion-segment-button>
+      <ion-segment-button value="scrumworm">
+        Scrumworm
+      </ion-segment-button>
+      <ion-segment-button value="tetris">
+        Tetris
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <div [ngSwitch]="project">
+    <ion-card *ngSwitchCase="'futoshiki'">
+      <img padding src="assets/imgs/futoshiki.png" />
+      <ion-card-content>
+        <ion-card-title>
+          Futoshiki solver
+        </ion-card-title>
+        <p>
+          <span style="color: red;">Javascript / JQuery</span>
+          <br><br>
+          Futoshiki is a sudoku-like logic game. Typical futoshiki gridsize is 5x5. Player has to fill in each cell with a number between 1-n. The range depends on the size of the grid, in a 5-by-5 grid the digits are 1-5. You cannot place same number twice in a row or column. Depending on the given puzzle, the starting situation may consist some hard-coded numbers that you cannot change. While filling the grid you also need to respect the greater-than symbols between the slots (if any).
+          <br><br>
+          Futoshiki-solver is not a futoshiki game. Instead, it solves any given starting situation. You can fill in the hard-coded numbers as well as adjust the greater-than rules by clicking mouse1 between the cells.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngSwitchCase="'scrumworm'">
+      <img padding src="assets/imgs/scrumworm.png" />
+      <ion-card-content>
+        <ion-card-title>
+          Scrumworm
+        </ion-card-title>
+        <p>
+          <span style="color: red;">JavaScript / Meteor / MongoDB</span>
+          <br><br>
+          This is my first JavaScript / HTML-canvas game. The background represents a scrumboard. When player collects a task, his score will be updated and a new task will appear in the next phase of the scrumboard. When player dies, his playername and score will be added to the database along with the timestamp. Scoreboard will be updated and sorted immediately.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngSwitchCase="'tetris'">
+      <img padding src="assets/imgs/tetris.png" />
+      <ion-card-content>
+        <ion-card-title>
+          Tetris
+        </ion-card-title>
+        <p>
+          <span style="color: red;">Java</span>
+          <br><br>
+          This is a Tetris clone done in Java, i enjoyed this project especially. The code is designed and written in OOP-style right from the beginning. It is structured in different classes such as "piece", "field", "stack" and more.
+          <br><br>
+          The game includes some advanced features like drop function, which makes the piece fall down immediately and helper "reflection" in the bottom (player can see where the piece is going to drop exactly). The downward-movement of the piece is done by one pixel at a time, so it appears smooth for the player. This approach made it a little bit more challenging (and fun) to figure out an efficent way to handle collision detection.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
 
 </ion-content>
