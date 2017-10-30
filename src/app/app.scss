@@ -15,25 +15,30 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 ion-content{
-    background-image: url('../assets/imgs/bg.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100% !important;
+    font-size: 13px;
 }
-
 .slidesbg {
   background-color: rgba(242, 242, 242, 0.44);
   padding: 1rem;
 }
-
 .transp {
   background-color: transparent;
 }
-
 .menubg {
   background-color: rgba(242, 242, 242, 0.44);
 }
-
 .swiper-slide {
-  font-size: 14px;
+  font-size: 13px;
+}
+.card-md p {
+  font-size: 13px;
+}
+.hFixed {
+  height: 80%;
+}
+.swiper-container {
+    height: 400px;
+}
+.swiper-wrapper {
+    height: 300px;
 }
