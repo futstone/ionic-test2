@@ -8,6 +8,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  //these will hold username and password (ngModel in .html)
   username: string;
   password: string;
 
@@ -21,7 +22,7 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-
+  //This function is called when user clicks signIn()
   signIn() {
     this.fire.auth.signInWithEmailAndPassword(this.username, this.password)
     .then(data => {
@@ -32,7 +33,7 @@ export class LoginPage {
       this.failAlert(error);
     });
   }
-
+  //This function will give success alert, if login succesful
   successAlert(msg) {
     let alert = this.alertCtrl.create({
       title: 'Welcome',
@@ -41,7 +42,7 @@ export class LoginPage {
     });
     alert.present();
   }
-
+  //This will give alert of failed login
   failAlert(msg) {
     let alert = this.alertCtrl.create({
       title: 'Fail',

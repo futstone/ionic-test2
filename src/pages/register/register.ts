@@ -21,7 +21,7 @@ export class RegisterPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
-
+  //This function is called when user clicks createAccount()
   createAccount() {
     this.fire.auth.createUserWithEmailAndPassword(this.username, this.password)
       .then(data => {
@@ -30,10 +30,10 @@ export class RegisterPage {
       .catch(error => {
         this.failAlert(error);
       });
-
+    //just checking here..
     console.log("created account:" + this.username + " " + this.password)
   }
-
+  //This function will give success alert, if register succesful
   successAlert(msg) {
     let alert = this.alertCtrl.create({
       title: 'Welcome',
@@ -42,7 +42,7 @@ export class RegisterPage {
     });
     alert.present();
   }
-
+  //This will give alert of failed register
   failAlert(msg) {
     let alert = this.alertCtrl.create({
       title: 'Fail',

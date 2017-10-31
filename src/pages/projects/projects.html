@@ -8,7 +8,7 @@
     </ion-buttons>
     <ion-title>Projects</ion-title>
   </ion-navbar>
-
+  <!-- buttons for different sections, values affect to project-variable -->
   <ion-toolbar no-border-top>
     <ion-segment [(ngModel)]="project">
       <ion-segment-button value="futoshiki">
@@ -27,7 +27,7 @@
 
 
 <ion-content padding>
-
+  <!-- using ng-switchCase to show different sections to user depending on user actions -->
   <div [ngSwitch]="project">
     <ion-card *ngSwitchCase="'futoshiki'" class="bgWhite">
       <img padding src="assets/imgs/futoshiki.png" />

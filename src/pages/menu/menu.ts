@@ -29,6 +29,8 @@ export class MenuPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  //Takes PageInterface-object reference as an argument and figures out whether it's a tab page or not,
+  //in case not: root page will be set
   openPage(page: PageInterface) {
     let params = {};
 
@@ -41,6 +43,8 @@ export class MenuPage {
       this.nav.setRoot(page.pageName, params);
     }
   }
+  //Figures out if button text (span) should get primary class or not,
+  //and therefore displayed as different color (selected)
   isActive(page: PageInterface) {
     let childNav = this.nav.getActiveChildNavs()[0];
 
