@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 export interface PageInterface {
   title: string;
@@ -19,14 +20,16 @@ export class MenuPage {
   @ViewChild(Nav) nav: Nav;
 
   pages: PageInterface[] = [
-    { title: 'Targeted CV', pageName: 'TabsPage', tabComponent: 'HomePage', index: 0, icon: 'create' },
-    { title: 'Project work', pageName: 'TabsPage', tabComponent: 'ProjectsPage', index: 1, icon: 'construct' },
-    { title: 'Extra Curriculum activities', pageName: 'TabsPage', tabComponent: 'ExtraPage', index: 2, icon: 'thumbs-up' },
-    { title: 'Contact information', pageName: 'TabsPage', tabComponent: 'ContactPage', index: 3, icon: 'contact' },
-    { title: 'About', pageName: 'TabsPage', tabComponent: 'AboutPage', index: 4, icon: 'information-circle' }
+    { title: 'Personal Profile', pageName: 'TabsPage', tabComponent: 'HomePage', index: 0, icon: 'create' },
+    { title: 'Technical skills', pageName: 'TabsPage', tabComponent: 'TechskillsPage', index: 1, icon: 'phone-portrait' },
+    { title: 'Soft skills', pageName: 'TabsPage', tabComponent: 'SoftskillsPage', index: 2, icon: 'wine' },
+    { title: 'Personal projects', pageName: 'TabsPage', tabComponent: 'ProjectsPage', index: 3, icon: 'construct' },
+    { title: 'Extra Curriculum activities', pageName: 'TabsPage', tabComponent: 'ExtraPage', index: 4, icon: 'thumbs-up' },
+    { title: 'Contact information', pageName: 'TabsPage', tabComponent: 'ContactPage', index: 5, icon: 'contact' },
+    { title: 'Team projects', pageName: 'TabsPage', tabComponent: 'AboutPage', index: 6, icon: 'nuclear' }
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   //Takes PageInterface-object reference as an argument and figures out whether it's a tab page or not,
@@ -62,4 +65,9 @@ export class MenuPage {
     console.log('ionViewDidLoad MenuPage');
   }
 
+  logout() {
+    this.fire.auth.signOut().then(() => {
+      this.nav.setRoot('StartPage');
+    });
+  }
 }

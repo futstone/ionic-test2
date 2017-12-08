@@ -9,8 +9,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class LoginPage {
   //these will hold username and password (ngModel in .html)
-  username: string;
-  password: string;
+  username = 'test@test.fi';
+  password = 'password';
 
   constructor(
     private fire: AngularFireAuth,
